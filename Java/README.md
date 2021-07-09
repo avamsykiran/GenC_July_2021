@@ -310,10 +310,115 @@ OOPs
                             //the conenction  con is clsoed automatically.
                             //inside the try face, only Closable objects can be declared.
 
-
         Date Tiem API
+        --------------------
+
+            java.time
+                        LocalDate
+                        LocalDateTime
+
+                                        .now()
+                                        .of(year,month,day)
+                                        .of(year,month,day,hour,min)
+
+                        ZonedDateTime
+
+                        Period          
+                        Duration
+                                        .between(start,end)
+
+                        DateTimeFormatter
+                                        .ofPattern("");
+
+                                        .parse("");
+                                        .format(dateObj)
+
+
+                        Accept the dob of a person in dd-MM-yyyy format
+                        and assuming 60 years is the age of retirement,
+                        compute and display the possible retirement date of
+                        that person.
 
         Generics and Collections
+        --------------------------------------
+
+                Generic ?
+                    Aribattary data type that is realized at runtime...
+                    Used for crating ADT (Abstract data types)
+
+                    Swapping    e1 and e2
+
+                            temp = e2;
+                            e2 = e1;
+                            e1 = temp;
+
+                    Wildcards
+                                Upper Bounded       <? extends T>
+                                unbounded           <?> 
+                                Lower Bounded       <? super T>
+
+
+                Collections ?
+                                java.util
+
+                                    Collection                  Map
+                                     |--Set                      |--HashMap
+                                        |--HashSet               |--LinkedHashMap   
+                                        |--LinkedHashSet         |--SortedMap 
+                                        |--SortedSet                    |--TreeMap
+                                                |--TreeSet
+                                     |--List
+                                         |--ArrayList
+                                         |--LinkedList
+                                         |--Vector
+
+
+                              Set                   a non-linear data structure
+                                                    allows only one null at most
+                                                    allows no duplicates
+                                                    allows no randoem access (using index)
+                                HashSet             does not ensure any order of retrival  
+                                LinkedHashSet       ensures the entry order as order of retrival
+                                TreeSet             ensures the sorted order as order of retrival
+                              
+                              List                  a linear data structure
+                                                    allows nulls
+                                                    allows uplicates
+                                                    allows randoem access (using index)
+                                ArrayList           is a grwable array,is not synchronized
+                                Vector              is a gowablke array,is synchronized
+                                LibnkedList         is dblly lnked list,
+
+
+                              Map                   is a collection of key-value pairs
+                                                    allows no duplicate keys
+                                HashMap             does not ensure any order of retrival
+                                LinkedHashMap       ensures the entry order as order of retrival
+                                TreeMap             ensures the sorted order on keys as order of retrival
+
+                             Collections
+                             Comparator
+                             java.lang.Comparable
+
+        IO Streams           java.io              
+
+
+        Multi-Layer Archetecture
+       
+                PerssitenceUnit   <--->          APPLICATION         <--->    EndUser
+              FielSystem/DB..etc
+
+                                          MODEL, EXCEPTIONS, UTIL ..etc
+                PerssitenceUnit   <---> [ DAO <--> SERVICE <--> UI ] <--->    EndUser
+              FielSystem/DB..etc
+
+
+                DAO             interact with the Persistant Unit
+                SERVICE         host all the bussiness logic like computations,validations...etc
+                UI              interact with the End User
+
+                Each layer comprises of a Abstract Type (interface) and its Implementation to
+                compliement the isolation and loose coupled ness of the layers.
 
         Functional Interfaces
 
@@ -321,11 +426,7 @@ OOPs
 
         Streams API
 
-        IO Streams
-
         JDBC
-
-        MultiThreading
 
         
 
