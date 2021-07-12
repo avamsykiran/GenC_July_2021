@@ -24,8 +24,9 @@ public class EmpListDemo {
 		emps.add(new Employee(101L,"Darwin",LocalDate.now().plusDays(71),134500.0));
 		
 		//Collections.sort(emps);
-		Collections.sort(emps,new EmployeeFullNameComparator());
-		
+		//Collections.sort(emps,new EmployeeFullNameComparator());
+		//Collections.sort(emps,(e1,e2) -> e1.getDateofJoining().compareTo(e2.getDateofJoining()));
+		Collections.sort(emps,(e1,e2) -> e1.getBasic().compareTo(e2.getBasic()));
 		for(Employee emp : emps)
 			System.out.println(emp);
 

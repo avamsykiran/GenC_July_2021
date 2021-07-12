@@ -420,11 +420,105 @@ OOPs
                 Each layer comprises of a Abstract Type (interface) and its Implementation to
                 compliement the isolation and loose coupled ness of the layers.
 
-        Functional Interfaces
+        Interfaces Enhancements
+            1. static methods
+            2. default methods (methods with implementation)
+            3. Functional Interfaces
+            
+                static and default methods
+                ------------------------------------------------------------------
+                interface Shape{
+                    public abstract double area();
+                    public abstract double perimeter();
+
+                    public static Shape greaterOf(Shape s1,Shape s2) {
+                        return s1.area()>s2.area()?s1:s2;
+                    }
+
+                    public default double estimatePainitngCost(double paintingRate){
+                        return area()*paintingRate;
+                    }
+
+                }
+
+                
+                Functional Interfaces
+                ------------------------------------------------------------------
+
+                    is any interface that has not more than one abstract method.
+
+                    @FunctionalInterface annotation is a compil-time check annotation
+                    to ensure that the appleid interface has only one abstract menthod.
+
+                                    that the abstract method in the functional interface
+                    ----------------------------------------------------------------------------------
+                    Supplier        does not accept any params but returns.    
+                    
+                    Consumer        does accept params but does not return.    
+                    
+                    Predicate       returns only boolean irrespective of having not having params.
+
+                    Functiuonal     accepts params and returns a value.
+
+
+                    the functional interface cna be implements using a lambda expression
+                    or can hold a function reference.
+
+                    java.util.function
 
         Lambda Expressions
 
+                    (arg1,arg2...) -> returnExpression;
+
+                    (arg11,arg2,..) -> {
+                        code...
+                        return vlaue;
+                    }; 
+
+                    
+        Function References
+
+            FunctionInterface var1 = accessor::methodName
+
         Streams API
+
+                a stream is a flow data from a dataSource(Collection array/list/set/map) 
+
+                java.util.stream.Stream
+
+                            Stream s1 = Stream.of(array);
+                            Stream s2 = list.stream();
+                            Stream s2 = set.stream();
+
+                            Stream Operations
+                            ----------------------------
+                                Terminal Operations - that return zero or one object
+                                -----------------------------------------------------------
+
+                                    forEach     accepts a consuemr and 
+                                                executes the cosnumer on each value of the stream
+
+                                    reduce      accepts a bianryOperator
+                                                executes the binary operator on each pair of eles in the stream
+                                                and returnt he untimate single ele.
+
+                                                int[] a = new int[]{1,2,3,4,5,6,7,8,9};
+                                                Stream s = Stream.of(a);
+                                                BinaryOperator<Integer> bo = (v1,v2) -> v1+v2;
+                                                a.reduce(bo); // bo(bo(bo(bo(bo(bo(bo(bo(1,2),3),4),5),6),7),8),9)
+                                                            //45
+
+                                    collect     accepts a Collector
+                                                is used to collect all the eles of a stream into a list/set/map
+                                                
+                                                Collectors.toList()
+                                                Collectors.toSet() ...etc.,
+
+                                Intermediate Operations - that return a new stream
+                                ------------------------------------------------------------
+                                    map
+                                    filter
+                                    flatMap
 
         JDBC
 
