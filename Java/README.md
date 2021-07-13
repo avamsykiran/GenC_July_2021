@@ -559,29 +559,29 @@ OOPs
                 where each line represents a sales record with fields 
                 receiptNumber,itemName,area,unitsSold,totalCollection,rate,saoldDate
 
-                and convert each of the such line into a relevent java object
+                and convert each of  such line into a relevent java object
                 and insert them into a table in the database (mysql).
 
                 if any record format mismatches, a relevent err msg shall be displayed and
-                the rest of the records mus tbe processed,
+                the rest of the records must be processed,
 
                 finally diplay the numberOfRecordsSaved out of numberOfRecordsInFile
             
             3. When '2' is choosen 
 
-                accept the start date and end date
+                accept a start date and an end date
                 retrive all sales recoreds with in the given dates from the database table,
                 and display a report as below
 
                         assuming dates range is 01-Feb-2021 to 31-Jun-2021
 
-                        Feb2021     Mar2021     Apr2021     May2021 Jun2021
+                ItemName    Feb2021     Mar2021     Apr2021     May2021 Jun2021
 
-                Item1   26 26000    0 0         12  13450
-                Item2
-                Item3
-                Item4
-                ....
+                Item1       26 26000    0 0         12  13450   ......  .......
+                Item2       .......     .......     .......     ....... .......     
+                Item3       .......     .......     .......     ....... .......
+                Item4       .......     .......     .......     ....... .......
+                ....        .......     .......     .......     ....... .......
 
         
 
