@@ -553,7 +553,7 @@ OOPs
 
                 ask for the file names eg: 'sampleData.txt'
                 verify if the sampleData.txt is a commas seprated records file:
-                    1,Item1,CMR Shopping Mall,56,78900,01-JUN-2021
+                    1,Item1,CMR Shopping Mall,56,56000,1000,01-JUN-2021
                     ....
                     ....
                 where each line represents a sales record with fields 
