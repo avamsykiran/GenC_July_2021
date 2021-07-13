@@ -1,6 +1,8 @@
 package com.cts.genc.j8f.model;
 
 import java.time.LocalDate;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Employee implements Comparable<Employee> {
 
@@ -8,6 +10,7 @@ public class Employee implements Comparable<Employee> {
 	private String fullName;
 	private LocalDate dateofJoining;
 	private Double basic;
+	private Set<String> skills;
 
 	public Employee() {
 	}
@@ -18,6 +21,16 @@ public class Employee implements Comparable<Employee> {
 		this.fullName = fullName;
 		this.dateofJoining = dateofJoining;
 		this.basic = basic;
+		this.skills=new TreeSet<>();
+	}
+	
+	public Employee(Long empId, String fullName, LocalDate dateofJoining, Double basic,Set<String> skills) {
+		super();
+		this.empId = empId;
+		this.fullName = fullName;
+		this.dateofJoining = dateofJoining;
+		this.basic = basic;
+		this.skills=skills;
 	}
 
 	public Long getEmpId() {
@@ -52,10 +65,13 @@ public class Employee implements Comparable<Employee> {
 		this.basic = basic;
 	}
 
-	@Override
-	public String toString() {
-		return "Employee [empId=" + empId + ", fullName=" + fullName + ", dateofJoining=" + dateofJoining + ", basic="
-				+ basic + "]";
+	
+	public Set<String> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(Set<String> skills) {
+		this.skills = skills;
 	}
 
 	@Override
@@ -71,6 +87,7 @@ public class Employee implements Comparable<Employee> {
 		result = prime * result + ((dateofJoining == null) ? 0 : dateofJoining.hashCode());
 		result = prime * result + ((empId == null) ? 0 : empId.hashCode());
 		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
+		result = prime * result + ((skills == null) ? 0 : skills.hashCode());
 		return result;
 	}
 
@@ -103,7 +120,20 @@ public class Employee implements Comparable<Employee> {
 				return false;
 		} else if (!fullName.equals(other.fullName))
 			return false;
+		if (skills == null) {
+			if (other.skills != null)
+				return false;
+		} else if (!skills.equals(other.skills))
+			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", fullName=" + fullName + ", dateofJoining=" + dateofJoining + ", basic="
+				+ basic + ", skills=" + skills + "]";
+	}
+
+	
 
 }

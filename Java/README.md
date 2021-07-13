@@ -516,11 +516,72 @@ OOPs
 
                                 Intermediate Operations - that return a new stream
                                 ------------------------------------------------------------
-                                    map
-                                    filter
-                                    flatMap
+                                    filter      accepts a Predicate
+                                                return a new stream of eles that belogn to
+                                                older stream and that got true when applied with the
+                                                predicate
+
+                                    map         accepts a Transformer  (accepts a param and returns a value that
+                                                after tranfroiming the param.)
+
+                                                returns a new stream of transformed values of all eles
+                                                in the older stream.
+
+                                    flatMap     is used for flatting a stream of streams into
+                                                one single stream.
+                                    distict     returns a new stream of non-duplicat ele from older stream
 
         JDBC
+                    DrivarManager
+                    Connection
+                    Statement
+                    PreapredStatement
+                    CallableStatment
+                    ResultSet
+
+
+        Case Study
+        -----------------------------------------------------------------
+
+            1. App should display a menu:
+
+                1. Upload Report
+                2. Display Summarry
+                3. Quit
+
+            2. When '1' is choosen 
+
+                ask for the file names eg: 'sampleData.txt'
+                verify if the sampleData.txt is a commas seprated records file:
+                    1,Item1,CMR Shopping Mall,56,78900,01-JUN-2021
+                    ....
+                    ....
+                where each line represents a sales record with fields 
+                receiptNumber,itemName,area,unitsSold,totalCollection,rate,saoldDate
+
+                and convert each of the such line into a relevent java object
+                and insert them into a table in the database (mysql).
+
+                if any record format mismatches, a relevent err msg shall be displayed and
+                the rest of the records mus tbe processed,
+
+                finally diplay the numberOfRecordsSaved out of numberOfRecordsInFile
+            
+            3. When '2' is choosen 
+
+                accept the start date and end date
+                retrive all sales recoreds with in the given dates from the database table,
+                and display a report as below
+
+                        assuming dates range is 01-Feb-2021 to 31-Jun-2021
+
+                        Feb2021     Mar2021     Apr2021     May2021 Jun2021
+
+                Item1   26 26000    0 0         12  13450
+                Item2
+                Item3
+                Item4
+                ....
 
         
 
